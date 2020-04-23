@@ -1,13 +1,13 @@
 <?php
 
 
-class RuleTest extends PHPUnit_Framework_TestCase
+class RuleTest extends PHPUnit\Framework\TestCase
 {
-    private $_testAutoFilterRuleObject;
+    public $_testAutoFilterRuleObject;
 
-    private $_mockAutoFilterColumnObject;
+    public $_mockAutoFilterColumnObject;
 
-    public function setUp()
+    public function setUp(): void
     {
         if (!defined('PHPEXCEL_ROOT')) {
             define('PHPEXCEL_ROOT', APPLICATION_PATH . '/');

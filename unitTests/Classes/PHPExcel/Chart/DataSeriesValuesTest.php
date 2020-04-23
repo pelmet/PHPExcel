@@ -1,10 +1,10 @@
 <?php
 
 
-class DataSeriesValuesTest extends PHPUnit_Framework_TestCase
+class DataSeriesValuesTest extends PHPUnit\Framework\TestCase
 {
 
-    public function setUp()
+    public function setUp(): void
     {
         if (!defined('PHPEXCEL_ROOT')) {
             define('PHPEXCEL_ROOT', APPLICATION_PATH . '/');

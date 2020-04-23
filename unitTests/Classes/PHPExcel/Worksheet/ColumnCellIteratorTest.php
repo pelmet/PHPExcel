@@ -1,11 +1,11 @@
 <?php
 
-class ColumnCellIteratorTest extends PHPUnit_Framework_TestCase
+class ColumnCellIteratorTest extends PHPUnit\Framework\TestCase
 {
     public $mockWorksheet;
     public $mockColumnCell;
 
-    public function setUp()
+    public function setUp(): void
     {
         if (!defined('PHPEXCEL_ROOT')) {
             define('PHPEXCEL_ROOT', APPLICATION_PATH . '/');
@@ -66,20 +66,16 @@ class ColumnCellIteratorTest extends PHPUnit_Framework_TestCase
         }
     }
 
-    /**
-     * @expectedException PHPExcel_Exception
-     */
     public function testSeekOutOfRange()
     {
+        $this->expectException(PHPExcel_Exception::class);
         $iterator = new PHPExcel_Worksheet_ColumnCellIterator($this->mockWorksheet, 'A', 2, 4);
         $iterator->seek(1);
     }
 
-    /**
-     * @expectedException PHPExcel_Exception
-     */
     public function testPrevOutOfRange()
     {
+        $this->expectException(PHPExcel_Exception::class);
         $iterator = new PHPExcel_Worksheet_ColumnCellIterator($this->mockWorksheet, 'A', 2, 4);
         $iterator->prev();
     }

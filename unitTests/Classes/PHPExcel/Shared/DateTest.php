@@ -3,10 +3,10 @@
 
 require_once 'testDataFileIterator.php';
 
-class DateTest extends PHPUnit_Framework_TestCase
+class DateTest extends PHPUnit\Framework\TestCase
 {
 
-    public function setUp()
+    public function setUp(): void
     {
         if (!defined('PHPEXCEL_ROOT')) {
             define('PHPEXCEL_ROOT', APPLICATION_PATH . '/');
@@ -71,7 +71,7 @@ class DateTest extends PHPUnit_Framework_TestCase
         $args = func_get_args();
         $expectedResult = array_pop($args);
         $result = call_user_func_array(array('PHPExcel_Shared_Date','PHPToExcel'), $args);
-        $this->assertEquals($expectedResult, $result, null, 1E-5);
+        $this->assertEquals($expectedResult, $result, '', 1E-5);
     }
 
     public function providerDateTimePHPToExcel1900()
@@ -92,7 +92,7 @@ class DateTest extends PHPUnit_Framework_TestCase
         $args = func_get_args();
         $expectedResult = array_pop($args);
         $result = call_user_func_array(array('PHPExcel_Shared_Date','FormattedPHPToExcel'), $args);
-        $this->assertEquals($expectedResult, $result, null, 1E-5);
+        $this->assertEquals($expectedResult, $result, '', 1E-5);
     }
 
     public function providerDateTimeFormattedPHPToExcel1900()
@@ -137,7 +137,7 @@ class DateTest extends PHPUnit_Framework_TestCase
         $args = func_get_args();
         $expectedResult = array_pop($args);
         $result = call_user_func_array(array('PHPExcel_Shared_Date','PHPToExcel'), $args);
-        $this->assertEquals($expectedResult, $result, null, 1E-5);
+        $this->assertEquals($expectedResult, $result, '', 1E-5);
     }
 
     public function providerDateTimePHPToExcel1904()

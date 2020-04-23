@@ -1,7 +1,7 @@
 <?php
 
 
-class AutofilterColumnTest extends PHPUnit_Framework_TestCase
+class AutofilterColumnTest extends PHPUnit\Framework\TestCase
 {
     private $_testInitialColumn = 'H';
 
@@ -9,7 +9,7 @@ class AutofilterColumnTest extends PHPUnit_Framework_TestCase
 
     private $_mockAutoFilterObject;
 
-    public function setUp()
+    public function setUp(): void
     {
         if (!defined('PHPEXCEL_ROOT')) {
             define('PHPEXCEL_ROOT', APPLICATION_PATH . '/');
@@ -76,11 +76,9 @@ class AutofilterColumnTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(PHPExcel_Worksheet_AutoFilter_Column::AUTOFILTER_FILTERTYPE_DYNAMICFILTER, $result);
     }
 
-    /**
-     * @expectedException PHPExcel_Exception
-     */
     public function testSetInvalidFilterTypeThrowsException()
     {
+        $this->expectException(PHPExcel_Exception::class);
         $expectedResult = 'Unfiltered';
 
         $result = $this->_testAutoFilterColumnObject->setFilterType($expectedResult);
@@ -101,11 +99,9 @@ class AutofilterColumnTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(PHPExcel_Worksheet_AutoFilter_Column::AUTOFILTER_COLUMN_JOIN_AND, $result);
     }
 
-    /**
-     * @expectedException PHPExcel_Exception
-     */
     public function testSetInvalidJoinThrowsException()
     {
+        $this->expectException(PHPExcel_Exception::class);
         $expectedResult = 'Neither';
 
         $result = $this->_testAutoFilterColumnObject->setJoin($expectedResult);

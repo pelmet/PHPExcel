@@ -3,10 +3,10 @@
 
 require_once 'testDataFileIterator.php';
 
-class TextDataTest extends PHPUnit_Framework_TestCase
+class TextDataTest extends PHPUnit\Framework\TestCase
 {
 
-    public function setUp()
+    public function setUp(): void
     {
         if (!defined('PHPEXCEL_ROOT')) {
             define('PHPEXCEL_ROOT', APPLICATION_PATH . '/');
@@ -353,7 +353,7 @@ class TextDataTest extends PHPUnit_Framework_TestCase
         $args = func_get_args();
         $expectedResult = array_pop($args);
         $result = call_user_func_array(array('PHPExcel_Calculation_TextData', 'VALUE'), $args);
-        $this->assertEquals($expectedResult, $result, null, 1E-8);
+        $this->assertEquals($expectedResult, $result, '', 1E-8);
     }
 
     public function providerVALUE()
